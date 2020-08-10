@@ -1,6 +1,35 @@
 // Задание 1
 // В HTML есть список категорий ul#categories.
 
+{/* <ul id="categories">
+  <li class="item">
+    <h2>Животные</h2>
+    <ul>
+      <li>Кот</li>
+      <li>Хомяк</li>
+      <li>Лошадь</li>
+      <li>Попугай</li>
+    </ul>
+  </li>
+  <li class="item">
+    <h2>Продукты</h2>
+    <ul>
+      <li>Хлеб</li>
+      <li>Петрушка</li>
+      <li>Творог</li>
+    </ul>
+  </li>
+  <li class="item">
+    <h2>Технологии</h2>
+    <ul>
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>JavaScript</li>
+      <li>React</li>
+      <li>Node</li>
+    </ul>
+  </li>
+</ul> */}
 
 //   Напиши скрипт, который выполнит следующие операции.
 
@@ -12,3 +41,11 @@
 
 // Категория: Животные
 // Количество элементов: 4
+
+const categoriesRef = document.querySelector('#categories');
+const itemCount = categoriesRef.children;
+console.log(`В списке ${itemCount.length} категории.`);
+for (const item of itemCount) {
+  console.log(`Категория: ${item.querySelector('h2').textContent}`); 
+  console.log(`Количество элементов: ${ item.querySelector('ul').children.length}`); 
+}
