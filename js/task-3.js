@@ -1,15 +1,3 @@
-// Напиши скрипт для создания галлереи изображений по массиву данных.
-
-// В HTML есть список ul#gallery.
-
-{
-  /* < ul id = "gallery" ></ >
-	
-Используй массив объектов images для создания тегов img вложенных в li.Для создания разметки используй шаблонные строки и insertAdjacentHTML().
-
-Все элементы галереи должны добавляться в DOM за одну операцию вставки.
-Добавь минимальное оформление галереи флексбоксами или гридами через css - классы. */
-}
 const images = [
   {
     url:
@@ -30,19 +18,8 @@ const images = [
 
 const galleryRef = document.querySelector('#gallery');
 galleryRef.classList.add('gallery');
-function setGalleryImagesFromArray(array, parrentRef) {
-  let string = ``;
-  for (const item of array) {
-		string += `<li class='gallery__item'><img src=${item.url} alt='${item.alt}' width=100px></li>`;
-  }
-  parrentRef.insertAdjacentHTML('beforeend', string);
-}
-
-// function setGalleryImagesFromArray(array, parrentRef) {
-// 	for (const item of array) {
-// 		const string = `<li class='gallery__item'><img src=${item.url} alt='${item.alt}' width=100px></li>`
-// 		parrentRef.insertAdjacentHTML('beforeend', string)
-// 	}
-// };
-
-setGalleryImagesFromArray(images, galleryRef);
+let string = ``;
+images.forEach(({ url, alt }) => {
+  string += `<li class="gallery__item"><img src="${url}" alt="${alt}"></li>`;
+});
+galleryRef.insertAdjacentHTML('afterbegin', string);
