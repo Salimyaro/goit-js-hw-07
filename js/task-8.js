@@ -16,7 +16,7 @@ const createBoxes = amount => {
 
 const destroyBoxes = () => {
   inpytRef.value = 0;
-  [...targetRef.children].forEach(child => child.remove());
+  targetRef.innerHTML = '';
 };
 const createCb = () => createBoxes(inpytRef.value);
 renderBtnRef.addEventListener('click', createCb);

@@ -18,8 +18,5 @@ const images = [
 
 const galleryRef = document.querySelector('#gallery');
 galleryRef.classList.add('gallery');
-let string = ``;
-images.forEach(({ url, alt }) => {
-  string += `<li class="gallery__item"><img src="${url}" alt="${alt}"></li>`;
-});
-galleryRef.insertAdjacentHTML('afterbegin', string);
+const galleryHtml = images.reduce((acc, { url, alt }) => acc + `<li class="gallery__item"><img src="${url}" alt="${alt}"></li>`, ``);
+galleryRef.insertAdjacentHTML('afterbegin', galleryHtml);
